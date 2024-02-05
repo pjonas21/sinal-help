@@ -23,7 +23,7 @@ function PaginaFormulario() {
       <View style={{ flexDirection: 'row', height: 150, alignItems: 'center' }}>
         <Image
           source={sosLogo}
-          style={{ width: 80, height: 80, alignItems: 'flex-start' }}
+          style={{ width: 60, height: 60, alignItems: 'flex-start' }}
           resizeMode='contain'
         />
       </View>
@@ -36,13 +36,13 @@ function PaginaFormulario() {
           placeholder='Seu nome'
           style={{
             backgroundColor: 'white',
-            borderWidth: 1,
-            borderColor: '#6e6e6e',
             borderRadius: 5,
             padding: 8,
             fontSize: 18,
-            marginBottom: 12
-
+            marginTop: 5,
+            marginBottom: 12,
+            shadowColor: '#000',
+            shadowOpacity: 1,
           }}
         />
 
@@ -51,13 +51,13 @@ function PaginaFormulario() {
           placeholder='Seu telefone'
           style={{
             backgroundColor: 'white',
-            borderWidth: 1,
-            borderColor: '#6e6e6e',
             borderRadius: 5,
             padding: 8,
             fontSize: 18,
-            marginBottom: 12
-
+            marginTop: 5,
+            marginBottom: 12,
+            shadowColor: '#000',
+            shadowOpacity: 1,
           }}
         />
 
@@ -66,13 +66,13 @@ function PaginaFormulario() {
           placeholder='Seu e-mail'
           style={{
             backgroundColor: 'white',
-            borderWidth: 1,
-            borderColor: '#6e6e6e',
             borderRadius: 5,
             padding: 8,
             fontSize: 18,
-            marginBottom: 12
-
+            marginTop: 5,
+            marginBottom: 12,
+            shadowColor: '#000',
+            shadowOpacity: 1,
           }}
         />
 
@@ -83,13 +83,13 @@ function PaginaFormulario() {
           placeholder='Insira sua localização...'
           style={{
             backgroundColor: 'white',
-            borderWidth: 1,
-            borderColor: '#6e6e6e',
             borderRadius: 5,
             padding: 8,
             fontSize: 18,
-            marginBottom: 12
-
+            marginTop: 5,
+            marginBottom: 12,
+            shadowColor: '#000',
+            shadowOpacity: 1,
           }}
         />
 
@@ -99,20 +99,20 @@ function PaginaFormulario() {
           numberOfLines={4}
           style={{
             backgroundColor: 'white',
-            borderWidth: 1,
-            borderColor: '#6e6e6e',
             borderRadius: 5,
             padding: 8,
             fontSize: 18,
-            marginBottom: 12
-
+            marginTop: 5,
+            marginBottom: 12,
+            shadowColor: '#000',
+            shadowOpacity: 1,
           }}
         />
 
         <TouchableOpacity style={styles.btnHelp}>
           <Text style={styles.txtButton}>Enviar</Text>
         </TouchableOpacity>
-        
+
       </View>
 
 
