@@ -60,7 +60,7 @@ function PaginaFormulario() {
         <TextInput
           placeholder='Seu telefone'
           keyboardType='phone-pad'
-          onChange={(text) => setNome(text.nativeEvent.text)}
+          onChange={(text) => setTelefone(text.nativeEvent.text)}
           value={telefone}
           style={{
             backgroundColor: 'white',
@@ -77,7 +77,7 @@ function PaginaFormulario() {
         <Text style={styles.txtLabel}>E-mail</Text>
         <TextInput
           placeholder='Seu e-mail'
-          onChange={(text) => setNome(text.nativeEvent.text)}
+          onChange={(text) => setEmail(text.nativeEvent.text)}
           value={email}
           style={{
             backgroundColor: 'white',
@@ -96,7 +96,7 @@ function PaginaFormulario() {
           multiline
           numberOfLines={4}
           placeholder='Insira sua localização...'
-          onChange={(text) => setNome(text.nativeEvent.text)}
+          onChange={(text) => setLocal(text.nativeEvent.text)}
           value={local}
           style={{
             backgroundColor: 'white',
@@ -114,7 +114,7 @@ function PaginaFormulario() {
           placeholder='Detalhes'
           multiline
           numberOfLines={4}
-          onChange={(text) => setNome(text.nativeEvent.text)}
+          onChange={(text) => setDetalhes(text.nativeEvent.text)}
           value={detalhes}
           style={{
             backgroundColor: 'white',
