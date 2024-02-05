@@ -18,7 +18,7 @@ function TelaInicial() {
 
 function PaginaFormulario() {
   return (
-    <ScrollView style={{ width: '100%', padding: 20 }}>
+    <ScrollView style={{ width: '100%', padding: 20}}>
 
       <View style={{ flexDirection: 'row', height: 150, alignItems: 'center' }}>
         <Image
@@ -133,14 +133,15 @@ export default function App() {
 
       {!screen ? <TelaInicial /> : <PaginaFormulario />}
 
-
-      <View style={{ flex: 1, width: '80%', display: !screen ? 'flex' : 'none' }}>
-        <TouchableOpacity style={styles.btnHelp} onPress={handleScreen}>
+      <View style={{flex: 1, width: '90%', justifyContent: 'flex-start'}}>
+        <TouchableOpacity style={[styles.btnHelp, { display: !screen ? 'flex' : 'none' }]} onPress={handleScreen}>
           <Text style={styles.txtButton}>Pedido de ajuda</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.btnCancel, { display: !screen ? 'none' : 'flex', }]} onPress={handleScreen}>
+          <Text style={styles.txtButton}>Cancelar</Text>
+        </TouchableOpacity>
       </View>
-
-
 
       <StatusBar style="auto" />
     </View>
@@ -156,6 +157,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btnHelp: {
+    backgroundColor: '#f54040',
+    alignItems: 'center',
+    borderRadius: 5,
+    padding: 8,
+  },
+  btnCancel: {
+    marginTop: -40,
     backgroundColor: '#f54040',
     alignItems: 'center',
     borderRadius: 5,
