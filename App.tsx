@@ -1,10 +1,147 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Image, Button, TouchableOpacity, TextInput, GestureResponderEvent, ScrollView } from 'react-native';
+import sosLogoInicio from './assets/img/sos.png'
+import sosLogo from './assets/img/sos2.png'
+import { useState } from 'react';
+
+
+function TelaInicial() {
+
+  return (
+    <Image
+      source={sosLogoInicio}
+      style={{ width: 150, flex: 1 }}
+      resizeMode='contain'
+    />
+  )
+}
+
+function PaginaFormulario() {
+  return (
+    <ScrollView style={{ width: '100%', padding: 20 }}>
+
+      <View style={{ flexDirection: 'row', height: 150, alignItems: 'center' }}>
+        <Image
+          source={sosLogo}
+          style={{ width: 80, height: 80, alignItems: 'flex-start' }}
+          resizeMode='contain'
+        />
+      </View>
+
+
+      <View style={{ justifyContent: 'space-around' }}>
+
+        <Text style={styles.txtLabel}>Nome completo</Text>
+        <TextInput
+          placeholder='Seu nome'
+          style={{
+            backgroundColor: 'white',
+            borderWidth: 1,
+            borderColor: '#6e6e6e',
+            borderRadius: 5,
+            padding: 8,
+            fontSize: 18,
+            marginBottom: 12
+
+          }}
+        />
+
+        <Text style={styles.txtLabel}>Telefone</Text>
+        <TextInput
+          placeholder='Seu telefone'
+          style={{
+            backgroundColor: 'white',
+            borderWidth: 1,
+            borderColor: '#6e6e6e',
+            borderRadius: 5,
+            padding: 8,
+            fontSize: 18,
+            marginBottom: 12
+
+          }}
+        />
+
+        <Text style={styles.txtLabel}>E-mail</Text>
+        <TextInput
+          placeholder='Seu e-mail'
+          style={{
+            backgroundColor: 'white',
+            borderWidth: 1,
+            borderColor: '#6e6e6e',
+            borderRadius: 5,
+            padding: 8,
+            fontSize: 18,
+            marginBottom: 12
+
+          }}
+        />
+
+        <Text style={styles.txtLabel}>Localização</Text>
+        <TextInput
+          multiline
+          numberOfLines={4}
+          placeholder='Insira sua localização...'
+          style={{
+            backgroundColor: 'white',
+            borderWidth: 1,
+            borderColor: '#6e6e6e',
+            borderRadius: 5,
+            padding: 8,
+            fontSize: 18,
+            marginBottom: 12
+
+          }}
+        />
+
+        <TextInput
+          placeholder='Detalhes'
+          multiline
+          numberOfLines={4}
+          style={{
+            backgroundColor: 'white',
+            borderWidth: 1,
+            borderColor: '#6e6e6e',
+            borderRadius: 5,
+            padding: 8,
+            fontSize: 18,
+            marginBottom: 12
+
+          }}
+        />
+
+        <TouchableOpacity style={styles.btnHelp}>
+          <Text style={styles.txtButton}>Enviar</Text>
+        </TouchableOpacity>
+        
+      </View>
+
+
+    </ScrollView>
+
+  )
+}
 
 export default function App() {
+
+  const [screen, setScreen] = useState(false)
+  function handleScreen() {
+    setScreen(!screen)
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+
+      {!screen ? <TelaInicial /> : <PaginaFormulario />}
+
+
+      <View style={{ flex: 1, width: '80%', display: !screen ? 'flex' : 'none' }}>
+        <TouchableOpacity style={styles.btnHelp} onPress={handleScreen}>
+          <Text style={styles.txtButton}>Pedido de ajuda</Text>
+        </TouchableOpacity>
+      </View>
+
+
+
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +150,24 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'column',
+    backgroundColor: '#f2f2f2',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  btnHelp: {
+    backgroundColor: '#f54040',
+    alignItems: 'center',
+    borderRadius: 5,
+    padding: 8,
+  },
+  txtButton: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white'
+  },
+  txtLabel: {
+    fontSize: 18,
+    fontWeight: '500'
+  }
 });
