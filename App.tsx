@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, Image, Button, TouchableOpacity, TextInput, GestureResponderEvent, ScrollView } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Image, Button, TouchableOpacity, Modal, TextInput, Alert, ScrollView } from 'react-native';
 import sosLogoInicio from './assets/img/sos.png'
 import sosLogo from './assets/img/sos2.png'
 import { useState } from 'react';
@@ -17,6 +17,14 @@ function TelaInicial() {
 }
 
 function PaginaFormulario() {
+  const [nome, setNome] = useState('')
+  const [telefone, setTelefone] = useState('')
+  const [email, setEmail] = useState('')
+  const [local, setLocal] = useState('')
+  const [detalhes, setDetalhes] = useState('')
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <ScrollView style={{ width: '100%', padding: 20}}>
 
@@ -34,6 +42,8 @@ function PaginaFormulario() {
         <Text style={styles.txtLabel}>Nome completo</Text>
         <TextInput
           placeholder='Seu nome'
+          onChange={(text) => setNome(text.nativeEvent.text)}
+          value={nome}
           style={{
             backgroundColor: 'white',
             borderRadius: 5,
@@ -49,6 +59,9 @@ function PaginaFormulario() {
         <Text style={styles.txtLabel}>Telefone</Text>
         <TextInput
           placeholder='Seu telefone'
+          keyboardType='phone-pad'
+          onChange={(text) => setNome(text.nativeEvent.text)}
+          value={telefone}
           style={{
             backgroundColor: 'white',
             borderRadius: 5,
@@ -64,6 +77,8 @@ function PaginaFormulario() {
         <Text style={styles.txtLabel}>E-mail</Text>
         <TextInput
           placeholder='Seu e-mail'
+          onChange={(text) => setNome(text.nativeEvent.text)}
+          value={email}
           style={{
             backgroundColor: 'white',
             borderRadius: 5,
@@ -81,6 +96,8 @@ function PaginaFormulario() {
           multiline
           numberOfLines={4}
           placeholder='Insira sua localização...'
+          onChange={(text) => setNome(text.nativeEvent.text)}
+          value={local}
           style={{
             backgroundColor: 'white',
             borderRadius: 5,
@@ -97,6 +114,8 @@ function PaginaFormulario() {
           placeholder='Detalhes'
           multiline
           numberOfLines={4}
+          onChange={(text) => setNome(text.nativeEvent.text)}
+          value={detalhes}
           style={{
             backgroundColor: 'white',
             borderRadius: 5,
@@ -109,7 +128,10 @@ function PaginaFormulario() {
           }}
         />
 
-        <TouchableOpacity style={styles.btnHelp}>
+        <TouchableOpacity 
+          style={styles.btnHelp}
+          onPress={() => {Alert.alert('Dados pedido: ', `Nome: ${nome} \nTelefone: ${telefone} \nEmail: ${email} \nLocalização: ${local} \nDetalhes: ${detalhes}`)}}
+        >
           <Text style={styles.txtButton}>Enviar</Text>
         </TouchableOpacity>
 
@@ -133,7 +155,7 @@ export default function App() {
 
       {!screen ? <TelaInicial /> : <PaginaFormulario />}
 
-      <View style={{flex: 1, width: '90%', justifyContent: 'flex-start'}}>
+      <View style={{flex: 1, width: '90%'}}>
         <TouchableOpacity style={[styles.btnHelp, { display: !screen ? 'flex' : 'none' }]} onPress={handleScreen}>
           <Text style={styles.txtButton}>Pedido de ajuda</Text>
         </TouchableOpacity>
